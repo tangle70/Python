@@ -25,10 +25,8 @@ class runit(Thread):
     def run(self):
         if sys.platform == 'win32':
             pcmd = os.popen("ping -n 2 -w 2 "+self.ip,"r")
-            #pcmd = os.popen("ping -n 1 -w 2 "+self.ip,"r")
         else:
-            pcmd = os.popen("ping -q -c2 "+self.ip,"r")
-            #pcmd = os.popen("ping -q -c1 "+self.ip,"r")            
+            pcmd = os.popen("ping -q -c2 "+self.ip,"r")          
         while 1:
             line = pcmd.readline()
             if not line:
@@ -41,6 +39,7 @@ if sys.platform == 'win32':
     runit.lifeline = re.compile(r"Received = (\d)")
 else:
     runit.lifeline = re.compile(r"(\d) received")
+    
 report = ("No response","Partial Response","Alive")
 
 print time.ctime()
@@ -60,6 +59,6 @@ for host in range(startoct,endoct):
 
 for pitems in pinglist:
     pitems.join()
-    print "Status from ",pitems.ip,"is",report[pitems.status]
+    print "Status: ",pitems.ip,"is",report[pitems.status]
 
 print time.ctime()
