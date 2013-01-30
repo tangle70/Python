@@ -1,9 +1,7 @@
 #!/bin/env/python
 ###################################################################################
-#  Tom Angle
 #
-#  A script to list files in a directory using via SSH using the paramiko 
-#  module.
+#  A script to list files in a directory using via SSH using the paramiko module.
 #
 ###################################################################################
 
