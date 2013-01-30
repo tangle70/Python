@@ -14,8 +14,8 @@ import time
 import sys
 from threading import Thread
 
-ipstart = '10.100.102.1'
-ipend = '10.100.102.100'
+ipstart = '10.0.0.1'
+ipend = '10.0.0.254'
 
 class runit(Thread):
     def __init__ (self,ip):
